@@ -1,14 +1,17 @@
 <?php
 //credit to https://www.guru99.com/case-study-opinion-poll-app.html
 
+function debug_to_console($data) {
+    $output = $data;
+    if (is_array($output))
+        $output = implode(',', $output);
+
+    echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+}
 
 class Member {
 //properties
-    //public $firstname;
-    //public $lastname;
-    //private $email;
-    //public $school;
-    private $toucandatabase;
+    private $db_handle;
     private $host = 'localhost';
     private $db = 'toucandatabase';
     private $uid = 'toucan';
@@ -16,18 +19,19 @@ class Member {
 
 //methods
     public function __construct(){
+        debug_to_console("HEEEEREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
 
-        $this->toucandatabase = mysqli_connect($this->host, $this->uid, $this->pwd); //connect to MySQL server
+        $this->db_handle = mysqli_connect($this->host, $this->uid, $this->pwd); //connect to MySQL server
+        //debug_to_console($this->db_handle);
+        if (!$this->db_handle) die("Unable to connect to MySQL: " . mysqli_error());
 
-        if (!$this->toucandatabase) die("Unable to connect to MySQL: " . mysqli_error());
-
-        if (!mysqli_select_db($this->toucandatabase,$this->db)) die("Unable to select database: " . mysqli_error());
+        if (!mysqli_select_db($this->db_handle,$this->db)) die("Unable to select database: " . mysqli_error());
 
     }
 
     private function execute_query($sql_stmt) {
 
-        $result = mysqli_query($toucandatabase,$sql_stmt); //execute SQL statement
+        $result = mysqli_query($db_handle,$sql_stmt); //execute SQL statement
 
         return !$result ? FALSE : TRUE;
 
@@ -35,7 +39,7 @@ class Member {
 
     public function select($sql_stmt) {
 
-        $result = mysqli_query($toucandatabase,$sql_stmt);
+        $result = mysqli_query($db_handle,$sql_stmt);
 
         if (!$result) die("Database access failed: " . mysqli_error());
 
@@ -65,7 +69,7 @@ class Member {
 
     public function __destruct(){
 
-        mysqli_close($this->toucandatabase);
+        mysqli_close($this->db_handle);
 
     }
 

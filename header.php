@@ -11,7 +11,7 @@
             <ul>
                 <li><a href="index.php">Home</a></li>
                 <li><a href="currentmembers.php">Current Members</a></li>
-                <li><a href="addmember.php">Add Members</a></li>
+                <li><a href="addmember.html.php">Add Members</a></li>
 </ul>
 </nav>
 </header>

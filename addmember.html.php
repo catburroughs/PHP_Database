@@ -2,13 +2,13 @@
 <html lang="en">
 <?php echo file_get_contents("html/header.html"); 
 require_once 'member.php';
-$member = new Member();
+
 ?> 
 <body>
 <h2>Add Member Form</h2>
 
 <p><b>Enter First Name and Last Name</b></p>
-<form action="addmember.php" method="post">
+<form action="memberform.php" method="post">
 First Name: <input type="text" name="firstname">
 
 Last Name: <input type="text" name="lastname"><br>
