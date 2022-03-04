@@ -1,4 +1,4 @@
-<?php 
+
 
 CREATE TABLE IF NOT EXISTS 'Members' (
 'Personid' int NOT NULL auto_increment,
@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS 'Members' (
 'Email' VARCHAR(255) ,
 'School' VARCHAR(255) ,
 PRIMARY KEY (Personid)
-);
+
 
 CREATE TABLE IF NOT EXISTS 'School Members'{
     'School' VARCHAR(255),
@@ -15,6 +15,3 @@ CREATE TABLE IF NOT EXISTS 'School Members'{
     'FirstName' VARCHAR(150) NOT NULL ,
     'LastName' varchar(255) NOT NULL,
     PRIMARY KEY (Personid)
-};
-
-?>

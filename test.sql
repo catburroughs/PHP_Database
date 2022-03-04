@@ -1,0 +1,1 @@
+INSERT INTO toucandatabase.toucan_members (FirstName, LastName, Email, School) VALUES('John', 'Doe', 'john@example.com','University of Aberdeen')
