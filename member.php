@@ -3,36 +3,24 @@
 
 
 
-class Member {
-//properties
-    private $db_handle;
-    private $host = 'localhost';
-    private $db = 'toucandatabase';
-    private $uid = 'toucan';
-    private $pwd = 'toucan';
+class SchoolMember {
+    private $conn;
+    private $servername = "localhost";
+    private $username = "toucan";
+    private $password = "toucan";
+    private $dbname = "toucandatabase";
 
 //methods
-    public function __construct(){
+    public function __construct() {
 
-        $this->db_handle = mysqli_connect($this->host, $this->uid, $this->pwd); //connect to MySQL server
-       
-        if (!$this->db_handle) die("Unable to connect to MySQL: " . mysqli_error());
-
-        if (!mysqli_select_db($this->db_handle,$this->db)) die("Unable to select database: " . mysqli_error());
-
-    }
-
-    private function execute_query($sql_stmt) {
-
-        $result = mysqli_query($db_handle,$sql_stmt); //execute SQL statement
-
-        return !$result ? FALSE : TRUE;
-
-    }
+        $this->conn = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
+        if ($this->conn->connect_error) {
+            die("Connection failed: " . $this->conn->connect_error); }
+}
 
     public function select($sql_stmt) {
 
-        $result = mysqli_query($db_handle,$sql_stmt);
+        $result = mysqli_query($this->con,$sql_stmt);
 
         if (!$result) die("Database access failed: " . mysqli_error());
 
@@ -54,17 +42,20 @@ class Member {
 
     }
 
-    public function insert($sql_stmt) {
-
-        return $this->execute_query($sql_stmt);
+    public function insert($firstname, $lastname, $email, $school) {
+        $sql = "INSERT INTO toucan_members (firstname, lastname, email, school)
+        VALUES ('$firstname', '$lastname', '$email', '$school')";
+        
+        
+        if ($this->conn->query($sql) === TRUE) {
+            echo "New record created successfully";
+          } else {
+            echo "Error: " . $sql . "<br>" . $this->conn->error;
+          }
+          $this->conn->close();
 
     }
 
-    public function __destruct(){
-
-        mysqli_close($this->db_handle);
-
-    }
 
 }
 

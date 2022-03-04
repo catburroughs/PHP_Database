@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php echo file_get_contents("html/header.html"); 
-require_once 'member.php';
+require 'member.php';
 
 ?> 
 <body>
 <h2>Add Member Form</h2>
 
 <p><b>Enter First Name and Last Name</b></p>
-<form action="memberform.php" method="post">
+<form method="POST" form action="memberform.php">
 First Name: <input type="text" name="firstname">
 
 Last Name: <input type="text" name="lastname"><br>
 <p><b>Enter Member Email</b></p>
 
-E-mail: <input type="text" name="email"><br>
+E-mail: <input type="email" name="email"><br>
 <p><b>Choose School (Control Click to Choose Multiple)</b></p>
 School : <select name="school" multiple size = 6><br>
-    <option value = "aberdeen">Univerity of Aberdeen</option>
+                <option value = "aberdeen">Univerity of Aberdeen</option>
                 <option value = "cheltenham">University of Cheltenham</option>
                 <option value = "dulwich">University of Dulwich</option>
                 <option value = "glasgow">University of Glasgow</option>
