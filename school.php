@@ -1,9 +1,6 @@
 <?php
-//credit to https://www.guru99.com/case-study-opinion-poll-app.html
 
-
-
-class SchoolMember {
+class School {
     private $conn;
     private $servername = "localhost";
     private $username = "toucan";
@@ -41,10 +38,25 @@ class SchoolMember {
         return $data;
 
     }
+    public function get_personid($firstname, $lastname, $email) {
+        $sql= "SELECT personid FROM toucan_members WHERE firstname = $firstname AND lastname = $lastname and email = $email";
+        //mysqli_select_db($this->dbname);
+        return mysqli_query($this->conn, $sql);
 
-    public function insert($firstname, $lastname, $email, $school) {
-        $sql = "INSERT INTO toucan_members (firstname, lastname, email, school_id)
-        VALUES ('$firstname', '$lastname', '$email', '$school')";
+
+    }
+
+    public function get_schoolname($school_id){
+        $sql = "SELECT School_Name from school_id where school_id = $school_id";
+        //mysqli_select_db($this->dbname);
+        //$retval = mysqli_query($this->conn, $sql);
+        return mysqli_query($this->conn, $sql);
+    }
+
+    public function insert($school_id, $personid) {
+        $table = $this->get_schoolname($school_id);
+        $sql = "INSERT INTO $table (Personid)
+        VALUES ('$personid')";
         
         
         if ($this->conn->query($sql) === TRUE) {

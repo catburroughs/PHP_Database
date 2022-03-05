@@ -8,10 +8,11 @@ if (isset($_POST['firstname'], $_POST['lastname'],$_POST['email'], $_POST['schoo
     $lastname = $_POST['lastname'];
 	$email = $_POST['email'];
     $school = $_POST['school'];
+    $school = implode(",", $school);
 
 
 
-    $model->insert($firstname, $lastname, $email, $school);
+    $model->insert($firstname, $lastname, $email,  $school);
 
     //$sql_stmt = "INSERT INTO toucan_members (`FirstName`,`LastName`, `Email`, `School`) VALUES ($firstname,$lastname,$email, $school)";
 

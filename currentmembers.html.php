@@ -1,22 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php echo file_get_contents("html/header.html"); 
-require 'member.php';
-
-?> 
+<?php echo file_get_contents("html/header.html"); ?> 
 <body>
-<h2>Add Member Form</h2>
 
-<p><b>Enter First Name and Last Name</b></p>
-<form method="POST" form action="memberform.php">
-First Name: <input type="text" name="firstname">
-
-Last Name: <input type="text" name="lastname"><br>
-<p><b>Enter Member Email</b></p>
-
-E-mail: <input type="email" name="email"><br>
-<p><b>Choose School (Control Click to Choose Multiple)</b></p>
-School : <select name="school[]" multiple = "yes" multiple size = 6><br>
+<form action="currentmembers.php" method="post">
+<p><b>Choose School</b></p>
+School : <select name="school"><br>
                 <option value = '1'>Univerity of Aberdeen</option>
                 <option value = '2'>University of Cheltenham</option>
                 <option value = '3'>University of Dulwich</option>
