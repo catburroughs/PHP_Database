@@ -1,14 +1,49 @@
 body {
-	width: 70%; 
+	width: auto; 
+  background-color: #fff;
+  padding: auto; /* Some padding */
 	margin: auto;
+  overflow:hidden;
 }
 
+h2 {
+  color: rgb(43, 32, 194);
+  text-align: center;
+  }
+  
+
+a.landbuttons button {
+  background-color: #04AA6D; /* Green background */
+  border: 1px solid green; /* Green border */
+  color: white; /* White text */
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  float: left; /* Float the buttons side by side */
+}
+
+a.landbuttons button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+/* Clear floats (clearfix hack) */
+a.landbuttons:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Add a background color on hover */
+a.landbuttons button:hover {
+  background-color: #3e8e41;
+}
+
+
 a:link {
-  color: gray;
+  color: rgb(56, 37, 139);
 }
 
 a:visited {
-  color: green;
+  color: rgb(45, 0, 128);
 }
 
 a:hover {
@@ -19,26 +54,22 @@ a:active {
   color: teal;
 }
 
-#navigation {
-  
-}
 
 p {
   font-size: 120%;
-  color: dimgray;
+  color: rgb(15, 15, 15);
 }
 
-#contents {
-	float: right;
-}
 
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background-color: rgb(255, 255, 255);
   font-family: sans-serif;
+  text-align: right;
+  box-shadow: 0 4px 2px 2px rgba(82, 79, 79, 0.2);
 }
 
 li {
@@ -47,7 +78,7 @@ li {
 
 li a {
   display: block;
-  color: white;
+  color: rgb(67, 54, 139);
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -55,5 +86,5 @@ li a {
 
 /* Change the link color to white on hover */
 li a:hover {
-  background-color: #fff;
+  background-color: rgb(162, 171, 196);
 }

@@ -11,11 +11,12 @@ $memberlist = $targetschool->get_members($school_id);
 }
 
 if ($row = mysqli_fetch_array($schoolname)) {
-    echo $row['School_name']."<br>";
+    echo "<h3><p align=center> $row[School_name]</p></h3>";
+    
 }
+
 while ($row = mysqli_fetch_array($memberlist)) {
-    echo $row['FirstName'];
-    echo $row['LastName']."<br>";
+    echo "<p align=center>$row[FirstName]  $row[LastName]</p>";
 }
 
 ?>

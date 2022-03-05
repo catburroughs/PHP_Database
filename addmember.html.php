@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" contents="Toucan Database in PHP">
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
 <?php echo file_get_contents("html/header.html"); 
 require 'member.php';
 
@@ -7,8 +12,8 @@ require 'member.php';
 <body>
 <h2>Add Member Form</h2>
 
-<p><b>Enter First Name and Last Name</b></p>
-<form method="POST" form action="memberform.php">
+<h2>Enter First Name and Last Name</h2>
+<form method="POST" form action="memberform.php" form style="text-align: center" >
 First Name: <input type="text" name="firstname">
 
 Last Name: <input type="text" name="lastname"><br>
