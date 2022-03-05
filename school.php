@@ -47,10 +47,20 @@ class School {
     }
 
     public function get_schoolname($school_id){
-        $sql = "SELECT School_Name from school_id where school_id = $school_id";
+        $sql = "SELECT school_id.School_name FROM school_id WHERE school_id.School_id = $school_id";
         //mysqli_select_db($this->dbname);
         //$retval = mysqli_query($this->conn, $sql);
         return mysqli_query($this->conn, $sql);
+    }
+
+    public function get_members($school_id) {
+        $sql = "SELECT FirstName, LastName FROM school_members
+        WHERE $school_id = School_id";
+        return mysqli_query($this->conn, $sql);
+        
+   
+          //$this->conn->close();
+
     }
 
     public function insert($school_id, $personid) {

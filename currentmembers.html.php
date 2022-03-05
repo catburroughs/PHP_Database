@@ -3,7 +3,7 @@
 <?php echo file_get_contents("html/header.html"); ?> 
 <body>
 
-<form action="currentmembers.php" method="post">
+<form action="showmembers.php" method="post">
 <p><b>Choose School</b></p>
 School : <select name="school"><br>
                 <option value = '1'>Univerity of Aberdeen</option>
