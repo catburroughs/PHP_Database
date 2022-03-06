@@ -13,7 +13,7 @@ require 'member.php';
 <h2>Add Member Form</h2>
 
 <h2>Enter First Name and Last Name</h2>
-<form method="POST" form action="memberform.php" form style="text-align: center" >
+<form method="POST" form action="memberpost.php" form style="text-align: center" >
 First Name: <input type="text" name="firstname">
 
 Last Name: <input type="text" name="lastname"><br>
